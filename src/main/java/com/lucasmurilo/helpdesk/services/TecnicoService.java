@@ -1,7 +1,9 @@
 package com.lucasmurilo.helpdesk.services;
 
 import com.lucasmurilo.helpdesk.dtos.TecnicoDTO;
+import com.lucasmurilo.helpdesk.entities.Pessoa;
 import com.lucasmurilo.helpdesk.entities.Tecnico;
+import com.lucasmurilo.helpdesk.repositories.PessoaRepository;
 import com.lucasmurilo.helpdesk.repositories.TecnicoRepository;
 import com.lucasmurilo.helpdesk.services.exception.DateIntegrityViolationException;
 import com.lucasmurilo.helpdesk.services.exception.ObjectNotFoundException;
@@ -16,6 +18,9 @@ public class TecnicoService {
 
     @Autowired
     private TecnicoRepository repository;
+
+    @Autowired
+    private PessoaRepository pessoaRepository;
 
     public Tecnico findById(Integer id){
         Optional<Tecnico> obj = repository.findById(id);
@@ -35,8 +40,8 @@ public class TecnicoService {
        return new TecnicoDTO(repository.save( new Tecnico(null, objDTO.getNome(), objDTO.getCpf(), objDTO.getTelefone())));
 
     }
-    private Tecnico findByCPF(TecnicoDTO objDTO){
-        Tecnico obj = repository.findByCPF(objDTO.getCpf());
+    private Pessoa findByCPF(TecnicoDTO objDTO){
+        Pessoa obj = pessoaRepository.findByCPF(objDTO.getCpf());
         if(obj != null){
             return obj;
         }

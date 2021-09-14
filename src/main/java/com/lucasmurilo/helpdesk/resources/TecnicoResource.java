@@ -20,6 +20,7 @@ public class TecnicoResource {
     @Autowired
     private TecnicoService service;
 
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id){
         TecnicoDTO objDto = new TecnicoDTO(service.findById(id));
