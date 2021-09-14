@@ -3,15 +3,19 @@ package com.lucasmurilo.helpdesk.dtos;
 import com.lucasmurilo.helpdesk.entities.Tecnico;
 import org.hibernate.validator.constraints.br.CPF;
 
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 public class TecnicoDTO implements Serializable {
 
     private Integer id;
+
+    @NotEmpty(message = "Campo nome é obrigatório")
     private String nome;
 
     @CPF
     private String cpf;
+    @NotEmpty(message = "O campo telefone é obrigatório")
     private String telefone;
 
     public TecnicoDTO() {
