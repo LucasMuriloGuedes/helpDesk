@@ -4,6 +4,7 @@ package com.lucasmurilo.helpdesk.dtos;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lucasmurilo.helpdesk.entities.OrdemServico;
 
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -15,6 +16,7 @@ public class OrdemServicoDTO implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime dataFechamento;;
     private Integer prioridade;
+    @NotEmpty(message = "O Campo OBSERVAÇÕES é requerido!")
     private String observacoes;
     private Integer status;
     private Integer tecnico;
