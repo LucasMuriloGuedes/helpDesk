@@ -1,5 +1,6 @@
 package com.lucasmurilo.helpdesk.dtos;
 
+import com.lucasmurilo.helpdesk.entities.Cliente;
 import com.lucasmurilo.helpdesk.entities.Tecnico;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -21,11 +22,11 @@ public class ClienteDTO implements Serializable {
     public ClienteDTO() {
     }
 
-    public ClienteDTO(Tecnico tecnico) {
-        this.id = tecnico.getId();
-        this.nome = tecnico.getNome();
-        this.cpf = tecnico.getCpf();
-        this.telefone = tecnico.getTelefone();
+    public ClienteDTO(Cliente cliente) {
+        this.id = cliente.getId();
+        this.nome = cliente.getNome();
+        this.cpf = cliente.getCpf();
+        this.telefone = cliente.getTelefone();
     }
 
     public Integer getId() {
