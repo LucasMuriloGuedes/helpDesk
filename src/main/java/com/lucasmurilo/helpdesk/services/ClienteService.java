@@ -1,4 +1,4 @@
-package com.lucasmurilo.helpdesk.services.exception;
+package com.lucasmurilo.helpdesk.services;
 
 
 import com.lucasmurilo.helpdesk.dtos.ClienteDTO;
@@ -7,6 +7,8 @@ import com.lucasmurilo.helpdesk.entities.Pessoa;
 import com.lucasmurilo.helpdesk.entities.Tecnico;
 import com.lucasmurilo.helpdesk.repositories.ClienteRepository;
 import com.lucasmurilo.helpdesk.repositories.PessoaRepository;
+import com.lucasmurilo.helpdesk.services.exception.DateIntegrityViolationException;
+import com.lucasmurilo.helpdesk.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

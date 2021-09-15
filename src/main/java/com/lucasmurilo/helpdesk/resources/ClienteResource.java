@@ -1,7 +1,7 @@
 package com.lucasmurilo.helpdesk.resources;
 
 import com.lucasmurilo.helpdesk.dtos.ClienteDTO;
-import com.lucasmurilo.helpdesk.services.exception.ClienteService;
+import com.lucasmurilo.helpdesk.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
