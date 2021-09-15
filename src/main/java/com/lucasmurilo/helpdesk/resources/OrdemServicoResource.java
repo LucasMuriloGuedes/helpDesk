@@ -36,6 +36,11 @@ public class OrdemServicoResource {
         objDTO = new OrdemServicoDTO(service.insert(objDTO));
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(objDTO.getId()).toUri();
         return ResponseEntity.created(uri).body(objDTO);
+    }
 
+    @PutMapping
+    public ResponseEntity<OrdemServicoDTO> update(@Valid @RequestBody OrdemServicoDTO obj){
+        obj = new OrdemServicoDTO(service.update(obj));
+        return ResponseEntity.ok().body(obj);
     }
 }

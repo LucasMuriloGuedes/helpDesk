@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +44,11 @@ public class OrdemServicoService {
 
     }
 
+    public OrdemServico update(OrdemServicoDTO obj) {
+        findById(obj.getId());
+        return fromDTO(obj);
+    }
+
     private OrdemServico fromDTO(OrdemServicoDTO objDTO){
         OrdemServico obj = new OrdemServico();
         obj.setId(objDTO.getId());
@@ -55,6 +61,10 @@ public class OrdemServicoService {
 
         obj.setCliente(cli);
         obj.setTecnico(tec);
+
+        if(obj.getStatus().getCod().equals(2)){
+            obj.setDataFechamento(LocalDateTime.now());
+        }
         return repository.save(obj);
     }
 }
